@@ -32,6 +32,14 @@ namespace Students
             }
             this.ball = x;
         }
+        public Student(string surname, string name)
+        {
+            this.surname = surname;
+            this.name = name;
+            bornYear = 1999;
+            exam = "math";
+            ball = 100;
+        }
         public void DisplayInfo()
         {
             Console.WriteLine($"{surname} {name} {bornYear}: {exam} — {ball}");
@@ -48,6 +56,31 @@ namespace Students
             Student current = new Student(splitted);
             students.Add(students.Count,current);
         }
+        public static void DeleteStudent(Dictionary<int, Student> studs)
+        {
+            Console.WriteLine("Введите Фамилию и Имя: ");
+            string s = Console.ReadLine();
+            string[] splitted = s.Split(' ');
+            Student stud = new Student(splitted[0],splitted[1]);
+            stud.DisplayInfo();
+            int key = studs.Count+1;
+            foreach(KeyValuePair<int, Student> item in studs)
+            {
+                if (item.Value.surname.Equals(stud.surname) && item.Value.name.Equals(stud.name))
+                {
+                    key = item.Key;
+                }
+            }
+            if (key != studs.Count+1)
+            {
+                studs.Remove(key);
+            }
+            else
+            {
+                Console.WriteLine("Нет Такого студента");
+            }
+        }
+        
         static void Main(string[] args)
         {
             string path = "1.txt";
@@ -57,32 +90,50 @@ namespace Students
             foreach (string s in text)
             {
                 string[] splitted = s.Split(' ');
-                Student current = new Student();
-                current.surname = splitted[0];
-                current.name = splitted[1];
-                int x = 1;
-                if (!Int32.TryParse(splitted[2], out x))
-                {
-                    Console.WriteLine($"У студента {i} неверный ввод года рождения");
-                }
-                current.bornYear = x;
-                x = 0;
-                current.exam = splitted[3];
-                if (!Int32.TryParse(splitted[4],out x))
-                {
-                    Console.WriteLine($"У студента {i} неверно введены баллы");
-                }
-                current.ball = x;
+                Student current = new Student(splitted);
                 students.Add(i, current);
                 i++;
             }   //Считывание с файла
-            NewStudent(students);
-
+           
             foreach (KeyValuePair<int, Student> item in students)
             {
                 Console.Write((item.Key + 1)+" ");
                 item.Value.DisplayInfo();
             }
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine("\nМеню:\n1.Введите 'Новый студент', чтобы добавить студента\n" +
+                "2.Введите 'Удалить', чтобы удалить студента\n" +
+                "3.Введите 'Сортировать', чтобы отсортировать по баллам\n" +
+                "4.Введите 'Завершить', чтобы завершить программу");
+                string s = Console.ReadLine();
+                switch (s)
+                {
+                    case "Новый студент":
+                        NewStudent(students);
+                        break;
+                    case "Удалить":
+                        DeleteStudent(students);
+                        break;
+                    case "Сортировать":
+                        students = students.OrderBy(pair => pair.Value.ball).ToDictionary(pair => pair.Key, pair => pair.Value);
+                        Console.WriteLine("\nSorted:");
+                        foreach (KeyValuePair<int, Student> item in students)
+                        {
+                            Console.Write((item.Key + 1) + " ");
+                            item.Value.DisplayInfo();
+                        }
+                        break;
+                    case "Завершить":
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Ошибка");
+                        break;
+                }
+            }
+            
             Console.ReadKey();
         }
     }
