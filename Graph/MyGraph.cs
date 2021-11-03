@@ -76,7 +76,6 @@ namespace Graph
                 Console.Write(top + " ->");
                 path.Add(top);
                 s.Dequeue();
-                
                 foreach (Vertex vertex in adjList[top])
                 {
                     if (!visited[vertex.number])
@@ -87,7 +86,6 @@ namespace Graph
                 }
             }
         }
-
         public int[,] GetAdjMatrix()
         {
             var result = new int[VertexCount, VertexCount];
