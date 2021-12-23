@@ -62,7 +62,6 @@ namespace Students
             string s = Console.ReadLine();
             string[] splitted = s.Split(' ');
             Student stud = new Student(splitted[0],splitted[1]);
-            stud.DisplayInfo();
             int key = studs.Count+1;
             foreach(KeyValuePair<int, Student> item in studs)
             {
@@ -133,8 +132,6 @@ namespace Students
                         break;
                 }
             }
-            
-            Console.ReadKey();
         }
     }
 }
