@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery", "Lottery\Lottery.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "password", "password\password.csproj", "{1B5B877B-799F-473F-B1C6-8FF8F34B6D4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stolovka", "Stolovka\Stolovka.csproj", "{3E9CD3A9-D89C-469B-8F40-2101E9CDBBCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1B5B877B-799F-473F-B1C6-8FF8F34B6D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B5B877B-799F-473F-B1C6-8FF8F34B6D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B5B877B-799F-473F-B1C6-8FF8F34B6D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9CD3A9-D89C-469B-8F40-2101E9CDBBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9CD3A9-D89C-469B-8F40-2101E9CDBBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9CD3A9-D89C-469B-8F40-2101E9CDBBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9CD3A9-D89C-469B-8F40-2101E9CDBBCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

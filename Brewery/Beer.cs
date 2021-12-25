@@ -10,8 +10,32 @@ namespace Brewery
     public enum Type { Ale, Lager}
     class Beer
     {
-        Type type;
-        Filter filter = Filter.Unfiltered;
-
+        readonly Type type;
+        readonly Filter filter = Filter.Unfiltered;
+        public decimal price;
+        public Beer()
+        {
+            type = Type.Lager;
+            filter = Filter.Filtred;
+            price = 1;
+        }
+        public Beer(Type t)
+        {
+            type = t;
+            filter = Filter.Filtred;
+            price = 1;
+        }
+        public Beer(Type t, Filter f)
+        {
+            type = t;
+            filter = f;
+            price = 1;
+        }
+        public Beer(Type t, Filter f, decimal x)
+        {
+            type = t;
+            filter = f;
+            price = x;
+        }
     }
 }

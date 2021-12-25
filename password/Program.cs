@@ -12,7 +12,7 @@ namespace password
         {
             Console.WriteLine("1. Проверка пароля");
             string password = "";
-            string[] pass_decode = { "password123", "admin", "admin1" };
+            string[] pass_decode = { "password12", "admin", "admin1", "password123" };
             string pass_possible = "01110000 01100001 01110011 01110011 01110111 01101111 01110010 01100100 00110001 00110010 00110011";
             foreach (string pass in pass_decode)
             {
@@ -22,7 +22,7 @@ namespace password
                 {
                     str += (bytes == 0) ? " " : Convert.ToString(bytes, 2).PadLeft(8, '0');
                 }
-                if (str[str.Length - 1] == ' ') str = str.Substring(0, str.Length - 1);
+                if (str[str.Length - 1] == ' ') { str = str.Substring(0, str.Length - 1); }
                 if (Equals(str, pass_possible))
                 {
                     password = pass;
